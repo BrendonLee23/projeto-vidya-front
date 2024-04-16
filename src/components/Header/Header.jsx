@@ -6,6 +6,7 @@ import OrdersBlue from "../../assets/images/cartBlue.svg"
 import OrdersGrey from "../../assets/images/cartGrey.svg"
 import RequestsBlue from "../../assets/images/listBlue.svg"
 import RequestsGrey from "../../assets/images/listGrey.svg"
+import { CustomersButton, OrdersButton, RequestsButton, StyledHeader } from "./Header-Styles"
 
 export default function Header() {
 
@@ -32,73 +33,3 @@ export default function Header() {
         </StyledHeader>
     )
 }
-
-const StyledHeader = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-    background-color: #FFFFFF;
-    gap: 15px;
-`
-
-const CustomersButton = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    width: 95px;
-    background-color: ${props => props.active ? "#F7F9FC" : "#ffffff"};
-    border-radius: 10px;
-    cursor: pointer;
-    h1 {
-        font-family: Roboto;
-        color: ${props => props.active ? "#006FFD" : "#5D6570"};
-    }
-    img {
-        margin-right: 5px;
-        width: 22px; /* Define o mesmo tamanho para todas as imagens */
-        height: 22px; /* Define o mesmo tamanho para todas as imagens */
-    }
-`
-
-const OrdersButton = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    width: 95px;
-    background-color: ${props => props.active ? "#F7F9FC" : "#ffffff"};
-    border-radius: 10px;
-    cursor: pointer;
-    h1 {
-        font-family: Roboto;
-        color: ${props => props.active ? "#006FFD" : "#5D6570"};
-    }
-    img {
-        margin-right: 5px;
-        width: 20px; /* Define o mesmo tamanho para todas as imagens */
-        height: 20px; /* Define o mesmo tamanho para todas as imagens */
-    }
-`
-
-const RequestsButton = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    width: 95px;
-    background-color: ${props => props.active ? "#F7F9FC" : "#ffffff"};
-    border-radius: 10px;
-    cursor: pointer;
-    h1 {
-        font-family: Roboto;
-        color: ${props => props.active ? "#006FFD" : "#5D6570"};
-    }
-    img {
-        margin-right: 5px;
-        width: 18px; /* Define o mesmo tamanho para todas as imagens */
-        height: 18px; /* Define o mesmo tamanho para todas as imagens */
-    }
-`
