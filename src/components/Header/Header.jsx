@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { styled } from "styled-components"
+import { useContext } from "react"
 import CustomersBlue from "../../assets/images/groupBlue.svg"
 import CustomersGrey from "../../assets/images/groupGrey.svg"
 import OrdersBlue from "../../assets/images/cartBlue.svg"
@@ -7,10 +6,12 @@ import OrdersGrey from "../../assets/images/cartGrey.svg"
 import RequestsBlue from "../../assets/images/listBlue.svg"
 import RequestsGrey from "../../assets/images/listGrey.svg"
 import { CustomersButton, OrdersButton, RequestsButton, StyledHeader } from "./Header-Styles"
+import { InfoContext } from "../../contexts/InfoContext"
 
 export default function Header() {
 
-    const [activeButton, setActiveButton] = useState("orders")
+    const { activeButton, setActiveButton } = useContext(InfoContext)
+    console.log(activeButton)
 
     function activateButton(button) {
         setActiveButton(button);

@@ -1,10 +1,12 @@
 import { styled } from "styled-components"
 import SearchIcon from "../../assets/images/search.svg"
 import AddIcon from "../../assets/images/iconAdd.svg"
+import { useContext } from "react"
+import { InfoContext } from "../../contexts/InfoContext"
 
 export default function Nav(){
 
-
+    const { activeButton} = useContext(InfoContext)
 
     return(
         <StyledNav>
@@ -14,7 +16,7 @@ export default function Nav(){
             </StyledInput>
             <StyledButton>
                 <img src={AddIcon} alt="AddIcon" />
-                <p>Novo Cliente</p>
+                {activeButton === "customers" ? <p>Novo Cliente</p> : activeButton === "orders" ? <p>Novo Pedido</p> : activeButton === "requests" ? <p>Novo Produto</p> : null}
             </StyledButton>
         </StyledNav>
     )
