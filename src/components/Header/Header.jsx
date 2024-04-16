@@ -10,7 +10,7 @@ import { CustomersButton, OrdersButton, RequestsButton, StyledHeader } from "./H
 
 export default function Header() {
 
-    const [activeButton, setActiveButton] = useState(null)
+    const [activeButton, setActiveButton] = useState("orders")
 
     function activateButton(button) {
         setActiveButton(button);
