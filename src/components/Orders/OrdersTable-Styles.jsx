@@ -1,20 +1,21 @@
 import { styled } from "styled-components"
 
-export const CustomersList = styled.div`
+export const OrdersList = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    height: 500px;
+    height: 460px;
+/*     background-color: #fff204; */
     border-radius: 8px;
-    overflow: auto;
+    overflow: auto; 
 `
-export const CustomersCard = styled.div`
+export const OrdersCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: start;
     width: 310px;
-    height: 69px;
+    height: 99px;
     background-color:#FFFFFF;
     border-radius: 8px;
     padding-left: 20px;
@@ -34,14 +35,23 @@ export const CustomersCard = styled.div`
         line-height: 24px;
         text-align: left;
         color: #FFFFFF;
-        background-color: #72ADF3;
+        background-color: #F37272;
+    }
+    h4{
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 16.94px;
+        text-align: left;
+        color: #1F2024;
     }
 ;
 `
-export const Description = styled.div`
+export const OrdersDescription = styled.div`
     display: flex;
     flex-direction: column;
     gap:5px;
+    margin-right: 5px;
     h2{
         font-family: Inter;
         font-size: 12px;

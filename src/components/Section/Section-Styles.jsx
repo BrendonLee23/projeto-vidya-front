@@ -2,9 +2,10 @@ import { styled } from "styled-components";
 
 export const StyledSection = styled.div`
     display: flex;
-    align-items: center;
     width: auto;
-    height: 350px;
-    margin: 20px 30px 20px 30px;
+    height: 500px;
+    margin: 0px 30px 20px 30px;
     border-radius: 8px;
+/*     background-color: green; */
+    overflow: auto;
 `

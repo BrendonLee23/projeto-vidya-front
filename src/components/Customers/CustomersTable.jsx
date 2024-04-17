@@ -126,6 +126,62 @@ export default function CustomersTable() {
                         <h3>00.000.000/0000-00</h3>
                     </Description>
                 </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
+                <CustomersCard>
+                    <h1>BM</h1>
+                    <Description>
+                        <h2>Brendo Moreira</h2>
+                        <h3>00.000.000/0000-00</h3>
+                    </Description>
+                </CustomersCard>
             </CustomersList>
             {isModalVisible && (
                 <ModalDetails activeDetailsModal={activeDetailsModal}/>

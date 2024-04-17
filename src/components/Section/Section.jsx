@@ -3,6 +3,7 @@ import { styled } from "styled-components"
 import { InfoContext } from "../../contexts/InfoContext"
 import CustomersTable from "../Customers/CustomersTable"
 import { StyledSection } from "./Section-Styles"
+import OrdersTable from "../Orders/OrdersTable"
 
 export default function Section() {
 
@@ -15,8 +16,7 @@ export default function Section() {
                     <CustomersTable />
                     :
                 activeButton === "orders" ?
-                    <OrdersTable>
-                    </OrdersTable>
+                    <OrdersTable />
                     :
                 activeButton === "requests" ?
                     <RequestsTable>
@@ -28,16 +28,7 @@ export default function Section() {
     )
 }
 
-const OrdersTable = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-/*     background-color: #29ff04; */
-    border-radius: 8px;
-    overflow: auto; 
-`
+
 
 const RequestsTable = styled.div`
     width: 100%;
