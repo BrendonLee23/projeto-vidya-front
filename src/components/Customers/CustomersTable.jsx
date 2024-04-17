@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { CustomersCard, CustomersList, Description } from "./CustomersTable-Style"
-import { styled } from "styled-components";
 
 import ModalDetails from "./ModalDetails/ModalDetails";
 
