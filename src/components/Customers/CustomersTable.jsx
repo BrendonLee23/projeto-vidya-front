@@ -1,10 +1,21 @@
+import { useState } from "react";
 import { CustomersCard, CustomersList, Description } from "./CustomersTable-Style"
+import { styled } from "styled-components";
+
+import ModalDetails from "./ModalDetails/ModalDetails";
 
 export default function CustomersTable() {
+
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    function activeDetailsModal() {
+        setIsModalVisible(!isModalVisible);
+    }
+
     return (
         <>
             <CustomersList>
-                <CustomersCard>
+                <CustomersCard  onClick={activeDetailsModal}>
                     <h1>BM</h1>
                     <Description>
                         <h2>Brendo Moreira</h2>
@@ -117,7 +128,12 @@ export default function CustomersTable() {
                     </Description>
                 </CustomersCard>
             </CustomersList>
+            {isModalVisible && (
+                <ModalDetails activeDetailsModal={activeDetailsModal}/>
+            )}
         </>
     )
 }
+
+
 

@@ -6,7 +6,6 @@ export const CustomersList = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 100%;
-/*     background-color: #d50505; */
 border-radius: 8px;
     overflow: auto;
 `
@@ -21,6 +20,7 @@ export const CustomersCard = styled.div`
     padding-left: 20px;
     margin-bottom: 14px;
     gap: 20px;
+    cursor: pointer;
     h1{
         display: flex;
         align-items: center;
