@@ -1,7 +1,7 @@
-import { Modal, ModalInfos, ModalTitle, Overlay } from "./ModalDetails-Styles";
-import CloseIcon from "../../../assets/images/close.svg";
+import { Modal, ModalInfos, ModalTitle, Overlay } from "./ModalCustomersDetails-Styles";
+import CloseIcon from "../../../../assets/images/close.svg";
 
-export default function ModalDetails(props) {
+export default function ModalCustomersDetails(props) {
 
     const {activeDetailsModal} = props;
 

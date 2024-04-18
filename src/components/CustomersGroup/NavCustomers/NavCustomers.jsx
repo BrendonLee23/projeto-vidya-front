@@ -1,8 +1,8 @@
 import SearchIcon from "../../../assets/images/search.svg"
-import CreateOrdersButton from "./CreateOrdersButton/CreateOrdersButton"
-import { StyledInput, StyledNav } from "./NavOrders-Styles"
+import CreateCustomersButton from "./CreateCustomersButton/CreateCustomersButton"
+import { StyledInput, StyledNav } from "./NavCustomers-Styles"
 
-export default function NavOrders(){
+export default function NavCustomers(){
 
     return(
         <StyledNav>
@@ -10,7 +10,7 @@ export default function NavOrders(){
             <input type="text" placeholder="Pesquisar" />
             <img src={SearchIcon} alt="SearchIcon" />
             </StyledInput>
-            <CreateOrdersButton/>
+            <CreateCustomersButton/>
         </StyledNav>
     )
 }

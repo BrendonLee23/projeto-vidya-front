@@ -1,23 +1,6 @@
 import { styled } from "styled-components"
-import SearchIcon from "../../assets/images/search.svg"
-import CreateButton from "../CreateButton/CreateButton"
 
-export default function Nav(){
-
-
-    return(
-        <StyledNav>
-            <StyledInput>
-            <input type="text" placeholder="Pesquisar" />
-            <img src={SearchIcon} alt="SearchIcon" />
-            </StyledInput>
-            <CreateButton/>
-        </StyledNav>
-    )
-}
-
-
-const StyledNav = styled.div`
+export const StyledNav = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,7 +12,7 @@ const StyledNav = styled.div`
     border-radius: 8px;
 `
 
-const StyledInput = styled.div`
+export const StyledInput = styled.div`
     display: flex;
     align-items: center;
     justify-content: end;

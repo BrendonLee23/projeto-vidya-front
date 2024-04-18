@@ -16,12 +16,12 @@ export const CustomersButton = styled.div`
     justify-content: center;
     height: 25px;
     width: 95px;
-    background-color: ${props => props.active ? "#F7F9FC" : "#ffffff"};
+    background-color:#F7F9FC;
     border-radius: 10px;
     cursor: pointer;
     h1 {
         font-family: Roboto;
-        color: ${props => props.active ? "#006FFD" : "#5D6570"};
+        color:#006FFD;
     }
     img {
         margin-right: 5px;
@@ -36,12 +36,12 @@ export const OrdersButton = styled.div`
     justify-content: center;
     height: 25px;
     width: 95px;
-    background-color: ${props => props.active ? "#F7F9FC" : "#ffffff"};
+    background-color:#ffffff;
     border-radius: 10px;
     cursor: pointer;
     h1 {
         font-family: Roboto;
-        color: ${props => props.active ? "#006FFD" : "#5D6570"};
+        color:#5D6570;
     }
     img {
         margin-right: 5px;

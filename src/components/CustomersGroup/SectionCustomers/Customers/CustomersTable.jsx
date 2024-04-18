@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { CustomersCard, CustomersList, Description } from "./CustomersTable-Style"
-
-import ModalDetails from "./ModalDetails/ModalDetails";
+import ModalCustomersDetails from "../../NavCustomers/ModalDetails/ModalCustomersDetails";
+import { CustomersCard, CustomersDescription, CustomersList } from "./CustomersTable-Styles";
 
 export default function CustomersTable() {
 
@@ -16,175 +15,175 @@ export default function CustomersTable() {
             <CustomersList>
                 <CustomersCard  onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
-                <CustomersCard>
+                <CustomersCard onClick={activeDetailsModal}>
                     <h1>BM</h1>
-                    <Description>
+                    <CustomersDescription>
                         <h2>Brendo Moreira</h2>
                         <h3>00.000.000/0000-00</h3>
-                    </Description>
+                    </CustomersDescription>
                 </CustomersCard>
             </CustomersList>
             {isModalVisible && (
-                <ModalDetails activeDetailsModal={activeDetailsModal}/>
+                <ModalCustomersDetails activeDetailsModal={activeDetailsModal}/>
             )}
         </>
     )

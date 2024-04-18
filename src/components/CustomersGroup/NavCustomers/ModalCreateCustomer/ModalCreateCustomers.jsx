@@ -1,9 +1,9 @@
 import { Footer, Modal, ModalForms, ModalTitle, Overlay, SaveButton } from "./ModalCreateCustomers-Styles";
-import CloseIcon from "../../../assets/images/close.svg";
+import CloseIcon from "../../../../assets/images/close.svg";
 
-export default function CreateCustomers(props) {
+export default function ModalCreateCustomers(props) {
 
-    const {activeCreateDataModal} = props;
+    const {activeCreateCustomersModal} = props;
 
     return (
         <>
@@ -11,7 +11,7 @@ export default function CreateCustomers(props) {
                 <Modal>
                     <ModalTitle>
                         <h2>Cadastrar cliente</h2>
-                        <img onClick={activeCreateDataModal} src={CloseIcon} alt="CloseIcon" />
+                        <img onClick={activeCreateCustomersModal} src={CloseIcon} alt="CloseIcon" />
                     </ModalTitle>
                     <ModalForms>
                         <div>
@@ -19,35 +19,35 @@ export default function CreateCustomers(props) {
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>CNPJ</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Telefone</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>CEP</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Estado</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Cidade</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Bairro</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Endereço</h1>
                             <input type="text" />
                         </div>
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Número</h1>
                             <input type="text" />
                         </div>
                     </ModalForms>
