@@ -5,6 +5,7 @@ import { InfoContext } from './contexts/InfoContext.jsx'
 import { useState } from 'react'
 import OrdersPage from './pages/OrdersPage.jsx'
 import CustomersPage from './pages/CustomersPage.jsx'
+import RequestsPage from './pages/RequestsPage.jsx'
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
           <Routes>
             <Route path="/orders" element={<OrdersPage />}></Route>
             <Route path="/customers" element={<CustomersPage />}></Route>
-{/*             <Route path="/requests" element={<RequestsPage />}></Route> */}
+            <Route path="/requests" element={<RequestsPage />}></Route>
           </Routes>
         </InfoContext.Provider>
       </BrowserRouter>
