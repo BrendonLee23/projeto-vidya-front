@@ -1,7 +1,7 @@
 import OrdersTable from "./Orders/OrdersTable"
 import { StyledSection } from "./SectionOrders-Styles"
 
-export default function Section() {
+export default function SectionOrders() {
 
 
     return (

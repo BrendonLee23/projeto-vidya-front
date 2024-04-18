@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ModalCustomersDetails from "../../NavCustomers/ModalDetails/ModalCustomersDetails";
+import ModalCustomersDetails from "../../NavCustomers/ModalCustomersDetails/ModalCustomersDetails";
 import { CustomersCard, CustomersDescription, CustomersList } from "./CustomersTable-Styles";
 
 export default function CustomersTable() {
