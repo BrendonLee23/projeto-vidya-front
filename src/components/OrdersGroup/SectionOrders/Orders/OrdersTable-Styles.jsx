@@ -21,7 +21,6 @@ export const OrdersCard = styled.div`
     padding-left: 20px;
     margin-bottom: 14px;
     gap: 20px;
-    cursor: pointer;
     h1{
         display: flex;
         align-items: center;

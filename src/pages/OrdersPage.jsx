@@ -1,13 +1,13 @@
-import Header from "../components/Header/Header";
-import Nav from "../components/Nav/Nav";
-import Section from "../components/Section/Section";
+import HeaderOrders from "../components/OrdersGroup/HeaderOrders/HeaderOrders";
+import NavOrders from "../components/OrdersGroup/NavOrders/NavOrders";
+import SectionOrders from "../components/OrdersGroup/SectionOrders/SectionOrders";
 
-export default function HomePage(){
+export default function OrdersPage(){
     return(
         <>
-            <Header/>
-            <Nav/>
-            <Section/>
+            <HeaderOrders />
+            <NavOrders/>
+            <SectionOrders/>
         </>
     )
 }

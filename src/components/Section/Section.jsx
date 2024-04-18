@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 import { InfoContext } from "../../contexts/InfoContext"
 import CustomersTable from "../Customers/CustomersTable"
 import { StyledSection } from "./Section-Styles"
-import OrdersTable from "../Orders/OrdersTable"
+import OrdersTable from "../OrdersGroup/SectionOrders/Orders/OrdersTable"
 
 export default function Section() {
 

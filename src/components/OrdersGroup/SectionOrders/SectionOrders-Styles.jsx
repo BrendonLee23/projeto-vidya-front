@@ -6,6 +6,6 @@ export const StyledSection = styled.div`
     height: 500px;
     margin: 0px 30px 20px 30px;
     border-radius: 8px;
-    /*     background-color: green; */
+/*     background-color: green; */
     overflow: auto;
 `
