@@ -15,7 +15,7 @@ export default function CreateCustomersButton() {
         <>
             <StyledButton onClick={activeCreateCustomersModal}>
                 <img src={AddIcon} alt="AddIcon" />
-                <p>Novo Pedido</p>
+                <p>Novo Cliente</p>
             </StyledButton>
         {isModalVisible && (
             <ModalCreateCustomers activeCreateCustomersModal={activeCreateCustomersModal}/>

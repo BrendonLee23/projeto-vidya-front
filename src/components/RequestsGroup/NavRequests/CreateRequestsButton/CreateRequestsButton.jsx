@@ -15,7 +15,7 @@ export default function CreateRequestsButton() {
         <>
             <StyledButton onClick={activeCreateRequestsModal}>
                 <img src={AddIcon} alt="AddIcon" />
-                <p>Novo Pedido</p>
+                <p>Novo Produto</p>
             </StyledButton>
         {isModalVisible && (
             <ModalCreateRequests activeCreateRequestsModal={activeCreateRequestsModal}/>
