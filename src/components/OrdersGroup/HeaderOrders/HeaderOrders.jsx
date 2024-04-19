@@ -15,7 +15,7 @@ export default function HeaderOrders() {
                     <h1>Clientes</h1>
                 </CustomersButton>
             </LinkStyled>
-            <LinkStyled to="/orders">
+            <LinkStyled to="/">
                 <OrdersButton>
                     <img src={OrdersBlue} alt="OrdersBlue" />
                     <h1>Pedidos</h1>

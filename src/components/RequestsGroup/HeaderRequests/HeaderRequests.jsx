@@ -15,7 +15,7 @@ export default function HeaderRequests() {
                     <h1>Clientes</h1>
                 </CustomersButton>
             </LinkStyled>
-            <LinkStyled to="/orders">
+            <LinkStyled to="/">
                 <OrdersButton>
                     <img src={OrdersGrey} alt="OrdersGrey" />
                     <h1>Pedidos</h1>

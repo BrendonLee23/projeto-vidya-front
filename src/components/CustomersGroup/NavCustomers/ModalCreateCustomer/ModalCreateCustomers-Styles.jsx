@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const Modal = styled.div`
+export const Modal = styled.form`
             background-color: white;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -20,9 +20,9 @@ export const Overlay = styled.div`
             align-items: center;
             `;
 
-export const ModalForms = styled.div`
+export const ModalForms = styled.form`
     width: 1000px;
-    height: 250px;
+    height: 300px;
     margin-top: 20px;
     padding: 0px 25px 25px 25px;
     display: flex;
@@ -35,6 +35,7 @@ export const ModalForms = styled.div`
         width: 300px;
         height: 60px;
         gap:8px;
+        margin-top: 10px;
     }
     h1{
         color:#2F3036;
@@ -50,6 +51,15 @@ export const ModalForms = styled.div`
         padding: 12px 16px;
         border-radius: 12px;
         border: 1.5px solid #C5C6CC;
+    }
+    p{
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        color:#f30505;
     }
 `;
 
@@ -84,7 +94,7 @@ export const Footer = styled.div`
     justify-content: end;
     padding-right: 30px;
 `
-export const SaveButton = styled.div`
+export const SaveButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,6 +102,7 @@ export const SaveButton = styled.div`
     height: 35px;
     background-color: blue;
     border-radius: 8px;
+    border: none;
     cursor: pointer;
     p{
         font-family: Roboto;

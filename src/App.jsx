@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <InfoContext.Provider value={{activeButton, setActiveButton}}>
           <Routes>
-            <Route path="/orders" element={<OrdersPage />}></Route>
+            <Route path="/" element={<OrdersPage />}></Route>
             <Route path="/customers" element={<CustomersPage />}></Route>
             <Route path="/requests" element={<RequestsPage />}></Route>
           </Routes>

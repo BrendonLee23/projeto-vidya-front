@@ -12,7 +12,7 @@ export const customerData = [
             number: "123",
             address: "Rua das Palmeiras"
         }
-    },
+    }/* ,
     {
         initials: "JS",
         details: {
@@ -334,5 +334,5 @@ export const customerData = [
             number: "1011",
             address: "Avenida Getúlio Vargas"
         }
-    }
+    } */
 ];
