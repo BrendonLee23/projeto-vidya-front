@@ -7,30 +7,30 @@ import { customerData } from "../../../../utils/CustomerAssets";
 export default function CustomersTable() {
 
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [selectedCustomer, setSelectedCustomer] = useState(null);
 
-    function activeDetailsCustomersModal() {
-        setIsModalVisible(!isModalVisible);
+    function activeDetailsCustomersModal(customer) {
+        setSelectedCustomer(customer);
+        setIsModalVisible(true);
     }
 
     return (
         <>
             <CustomersList>
-            {customerData.map((customer, index) => (
+                {customerData.map((customer, index) => (
                     <CustomersItem
                         key={index}
-                        initials={customer.initials}
-                        name={customer.name}
-                        cnpj={customer.cnpj}
-                        onClick={activeDetailsCustomersModal}
+                        customer={customer}
+                        onClick={() => activeDetailsCustomersModal(customer)}
                     />
                 ))}
             </CustomersList>
             {isModalVisible && (
-                <ModalCustomersDetails activeDetailsCustomersModal={activeDetailsCustomersModal}/>
+                <ModalCustomersDetails
+                    customer={selectedCustomer}
+                    activeDetailsCustomersModal={() => setIsModalVisible(false)}
+                />
             )}
         </>
     )
 }
-
-
-

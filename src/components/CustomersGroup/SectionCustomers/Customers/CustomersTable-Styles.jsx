@@ -5,7 +5,8 @@ export const CustomersList = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    height: 500px;
+    height: 450px;
     border-radius: 8px;
     overflow: auto;
+    padding-bottom: 100px;
 `
