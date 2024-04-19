@@ -12,7 +12,7 @@ export const customerData = [
             number: "123",
             address: "Rua das Palmeiras"
         }
-    }/* ,
+    },
     {
         initials: "JS",
         details: {
@@ -279,60 +279,4 @@ export const customerData = [
             address: "Rua da Consolação"
         }
     },
-    {
-        initials: "TC",
-        details: {
-            name: "Tatiana Cardoso",
-            cnpj: "10.345.678/9012-34",
-            phone: "(10) 3456-7890",
-            cep: "12345-678",
-            state: "Rio de Janeiro",
-            city: "Rio de Janeiro",
-            neighborhood: "Laranjeiras",
-            number: "789",
-            address: "Rua das Laranjeiras"
-        }
-    },
-    {
-        initials: "MA",
-        details: {
-            name: "Marcos Albuquerque",
-            cnpj: "23.234.567/8901-23",
-            phone: "(23) 2345-6789",
-            cep: "23456-789",
-            state: "Minas Gerais",
-            city: "Belo Horizonte",
-            neighborhood: "Savassi",
-            number: "1011",
-            address: "Avenida Getúlio Vargas"
-        }
-    },
-    {
-        initials: "TC",
-        details: {
-            name: "Tatiana Cardoso",
-            cnpj: "10.345.678/9012-34",
-            phone: "(10) 3456-7890",
-            cep: "12345-678",
-            state: "Rio de Janeiro",
-            city: "Rio de Janeiro",
-            neighborhood: "Laranjeiras",
-            number: "789",
-            address: "Rua das Laranjeiras"
-        }
-    },
-    {
-        initials: "MA",
-        details: {
-            name: "Marcos Albuquerque",
-            cnpj: "23.234.567/8901-23",
-            phone: "(23) 2345-6789",
-            cep: "23456-789",
-            state: "Minas Gerais",
-            city: "Belo Horizonte",
-            neighborhood: "Savassi",
-            number: "1011",
-            address: "Avenida Getúlio Vargas"
-        }
-    } */
 ];

@@ -3,18 +3,44 @@ import CloseIcon from "../../../../assets/images/close.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../schemas/CustomersSchema";
+import { useDispatch, useSelector } from 'react-redux';
+import { openModal, closeModal, addCustomer } from '../../../../tools/customersSlice';
+import axios from 'axios';
+
 
 export default function ModalCreateCustomers(props) {
-
+    const dispatch = useDispatch();
+    const modalOpen = useSelector(state => state.customers.modalOpen);
     const { activeCreateCustomersModal } = props;
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
     const onSubmit = (data) => {
-        console.log(data, "teste");
-        activeCreateCustomersModal(); 
-        alert("KKKKK")
+        dispatch(addCustomer(data));
+        dispatch(closeModal());
+        activeCreateCustomersModal();
     };
+
+    const updateWithCEPChange = async (event) => {
+        const cep = event.target.value;
+        if (cep.length === 8) {
+            try {
+                const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+                const { data } = response;
+
+                if (!data.erro) {
+                    setValue('estado', data.uf);
+                    setValue('cidade', data.localidade);
+                    setValue('bairro', data.bairro);
+                    setValue('endereco', data.logradouro);
+                    setValue('numero', data.siafi);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar o CEP:', error);
+            }
+        }
+    };
+    
 
     return (
         <>
@@ -42,7 +68,7 @@ export default function ModalCreateCustomers(props) {
                         </div>
                         <div>
                             <h1>CEP</h1>
-                            <input type="text" {...register("cep")} />
+                            <input type="text" {...register("cep")} onChange={updateWithCEPChange} />
                             {errors.cep && <p>{errors.cep.message}</p>}
                         </div>
                         <div>

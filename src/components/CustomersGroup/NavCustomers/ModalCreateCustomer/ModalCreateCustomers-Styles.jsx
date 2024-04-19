@@ -20,7 +20,7 @@ export const Overlay = styled.div`
             align-items: center;
             `;
 
-export const ModalForms = styled.form`
+export const ModalForms = styled.div`
     width: 1000px;
     height: 300px;
     margin-top: 20px;

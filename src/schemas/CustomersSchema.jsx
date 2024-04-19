@@ -10,7 +10,7 @@ export const schema = yup.object().shape({
         .matches(/^\(\d{2}\)\d{5}-\d{4}$/, 'Telefone deve ter o formato (00)00000-0000'),
     cep: yup.string()
         .required('CEP é obrigatório')
-        .matches(/^\d{5}-\d{3}$/, 'CEP deve ter o formato 00000-000'),
+        .matches(/^\d{5}\d{3}$/, 'CEP deve ter o formato 00000-000'),
     estado: yup.string()
         .required('Estado é obrigatório')
         .matches(/^(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)$/, 'Estado deve ser uma UF válida'),

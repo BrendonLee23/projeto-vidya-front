@@ -1,6 +1,6 @@
 
 import { configureStore } from '@reduxjs/toolkit';
-import customersReducer from './customersSlice';
+import customersReducer from '../src/tools/customersSlice';
 
 export default configureStore({
     reducer: {

@@ -3,17 +3,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    customers: [],
+    customersList: [],
     modalOpen: false,
 };
+
 
 const customersSlice = createSlice({
     name: 'customers',
     initialState,
     reducers: {
         addCustomer(state, action) {
-            state.customers.push(action.payload);
+            state.customersList.push(action.payload);
         },
+        
         openModal(state) {
             state.modalOpen = true;
         },

@@ -8,14 +8,15 @@ export default function ModalCustomersDetails(props) {
         return null; 
     }
 
-    const { name, cnpj, phone, cep, state, city, neighborhood, number, address } = customer.details;
+    const { nome, cnpj, telefone, cep, estado, cidade, bairro, numero, endereco } = customer;
+
 
     return (
         <>
             <Overlay>
                 <Modal>
                     <ModalTitle>
-                        <h2>{name}</h2>
+                        <h2>{nome}</h2>
                         <img onClick={activeDetailsCustomersModal} src={CloseIcon} alt="CloseIcon" />
                     </ModalTitle>
                     <ModalInfos>
@@ -25,7 +26,7 @@ export default function ModalCustomersDetails(props) {
                         </div>
                         <div>
                             <h2>Telefone</h2>
-                            <h3>{phone}</h3>
+                            <h3>{telefone}</h3>
                         </div>
                         <div>
                             <h2>CEP</h2>
@@ -33,23 +34,23 @@ export default function ModalCustomersDetails(props) {
                         </div>
                         <div>
                             <h2>Estado</h2>
-                            <h3>{state}</h3>
+                            <h3>{estado}</h3>
                         </div>
                         <div>
                             <h2>Cidade</h2>
-                            <h3>{city}</h3>
+                            <h3>{cidade}</h3>
                         </div>
                         <div>
                             <h2>Bairro</h2>
-                            <h3>{neighborhood}</h3>
+                            <h3>{bairro}</h3>
                         </div>
                         <div>
                             <h2>Número</h2>
-                            <h3>{number}</h3>
+                            <h3>{numero}</h3>
                         </div>
                         <div>
                             <h2>Endereço</h2>
-                            <h3>{address}</h3>
+                            <h3>{endereco}</h3>
                         </div>
                     </ModalInfos>
                 </Modal>
