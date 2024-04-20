@@ -3,22 +3,28 @@ import CloseIcon from "../../../../assets/images/close.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../schemas/CustomersSchema";
-import { useDispatch, useSelector } from 'react-redux';
-import { openModal, closeModal, addCustomer } from '../../../../tools/customersSlice';
+import { useDispatch } from 'react-redux';
+import { closeModal, addCustomer } from '../../../../tools/customersSlice';
 import axios from 'axios';
-
 
 export default function ModalCreateCustomers(props) {
     const dispatch = useDispatch();
-    const modalOpen = useSelector(state => state.customers.modalOpen);
     const { activeCreateCustomersModal } = props;
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
-    const onSubmit = (data) => {
-        dispatch(addCustomer(data));
-        dispatch(closeModal());
-        activeCreateCustomersModal();
+
+    const onSubmit = async (data) => {
+        try {
+            dispatch(addCustomer(data));
+            dispatch(closeModal());
+            const customersData = JSON.parse(localStorage.getItem('customers')) || [];
+            const updatedCustomers = [...customersData, data];
+            localStorage.setItem('customers', JSON.stringify(updatedCustomers));
+            activeCreateCustomersModal();
+        } catch (error) {
+            console.error('Erro ao cadastrar cliente:', error);
+        }
     };
 
     const updateWithCEPChange = async (event) => {
@@ -29,18 +35,18 @@ export default function ModalCreateCustomers(props) {
                 const { data } = response;
 
                 if (!data.erro) {
-                    setValue('estado', data.uf);
-                    setValue('cidade', data.localidade);
-                    setValue('bairro', data.bairro);
-                    setValue('endereco', data.logradouro);
-                    setValue('numero', data.siafi);
+                    setValue('state', data.uf);
+                    setValue('city', data.localidade);
+                    setValue('neighborhood', data.bairro);
+                    setValue('address', data.logradouro);
+                    setValue('number', data.siafi);
                 }
             } catch (error) {
                 console.error('Erro ao buscar o CEP:', error);
             }
         }
     };
-    
+
 
     return (
         <>
@@ -53,8 +59,8 @@ export default function ModalCreateCustomers(props) {
                     <ModalForms >
                         <div>
                             <h1>Nome</h1>
-                            <input type="text" {...register("nome")} />
-                            {errors.nome && <p>{errors.nome.message}</p>}
+                            <input type="text" {...register("name")} />
+                            {errors.name && <p>{errors.name.message}</p>}
                         </div>
                         <div>
                             <h1>CNPJ</h1>
@@ -63,8 +69,8 @@ export default function ModalCreateCustomers(props) {
                         </div>
                         <div>
                             <h1>Telefone</h1>
-                            <input type="text" {...register("telefone")} />
-                            {errors.telefone && <p>{errors.telefone.message}</p>}
+                            <input type="text" {...register("phone")} />
+                            {errors.phone && <p>{errors.phone.message}</p>}
                         </div>
                         <div>
                             <h1>CEP</h1>
@@ -73,28 +79,28 @@ export default function ModalCreateCustomers(props) {
                         </div>
                         <div>
                             <h1>Estado</h1>
-                            <input type="text" {...register("estado")} />
-                            {errors.estado && <p>{errors.estado.message}</p>}
+                            <input type="text" {...register("state")} />
+                            {errors.state && <p>{errors.state.message}</p>}
                         </div>
                         <div>
                             <h1>Cidade</h1>
-                            <input type="text" {...register("cidade")} />
-                            {errors.cidade && <p>{errors.cidade.message}</p>}
+                            <input type="text" {...register("city")} />
+                            {errors.city && <p>{errors.city.message}</p>}
                         </div>
                         <div>
                             <h1>Bairro</h1>
-                            <input type="text" {...register("bairro")} />
-                            {errors.bairro && <p>{errors.bairro.message}</p>}
+                            <input type="text" {...register("neighborhood")} />
+                            {errors.neighborhood && <p>{errors.neighborhood.message}</p>}
                         </div>
                         <div>
                             <h1>Endereço</h1>
-                            <input type="text" {...register("endereco")} />
-                            {errors.endereco && <p>{errors.endereco.message}</p>}
+                            <input type="text" {...register("address")} />
+                            {errors.address && <p>{errors.address.message}</p>}
                         </div>
                         <div>
                             <h1>Número</h1>
-                            <input type="text" {...register("numero")} />
-                            {errors.numero && <p>{errors.numero.message}</p>}
+                            <input type="text" {...register("number")} />
+                            {errors.number && <p>{errors.number.message}</p>}
                         </div>
                     </ModalForms>
                     <Footer>

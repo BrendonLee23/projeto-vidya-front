@@ -1,20 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ModalCustomersDetails from "../../NavCustomers/ModalCustomersDetails/ModalCustomersDetails";
-import { CustomersCard, CustomersDescription, CustomersList } from "./CustomersTable-Styles";
+import { CustomersList } from "./CustomersTable-Styles";
 import CustomersItem from "./CustomersItem/CustomersItem";
-
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { customerData } from "../../../../utils/CustomerAssets";
+import { addCustomer } from "../../../../tools/customersSlice";
 
 export default function CustomersTable() {
     const customers = useSelector(state => state.customers.customersList);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedCustomer, setSelectedCustomer] = useState(null);
+    const [storedCustomers, setStoredCustomers] = useState([]);
+    const dispatch = useDispatch();
 
     function activeDetailsCustomersModal(customer) {
         setSelectedCustomer(customer);
         setIsModalVisible(true);
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('customers') !== null) {
+            const storedData = JSON.parse(localStorage.getItem('customers')) || [];
+            setStoredCustomers(storedData);
+            storedData.forEach((item) => dispatch( addCustomer(item)));
+        }
+        else {
+            localStorage.setItem('customers', JSON.stringify(customerData));
+        }
+    }, []);
 
     return (
         <>
@@ -25,15 +38,6 @@ export default function CustomersTable() {
                         customer={customer}
                         onClick={() => activeDetailsCustomersModal(customer)}
                     />
-                ))}
-                {customerData.map((data, index) => (
-                    <CustomersCard key={index}>
-                        <h1>{data.initials}</h1>
-                        <CustomersDescription>
-                            <h2>{data.details.name}</h2>
-                            <h3>{data.details.cnpj}</h3>
-                        </CustomersDescription>
-                    </CustomersCard>
                 ))}
             </CustomersList>
             {isModalVisible && (
