@@ -1,18 +1,17 @@
-import { RequestsList } from "./RequestsTable-Styles"
+import { RequestsList } from "./RequestsTable-Styles";
 import { useEffect, useState } from "react";
 import ModalRequestsDetails from "../../NavRequests/ModalRequestsDetails/ModalRequestsDetails";
 import RequestsItem from "./RequestsItem/RequestsItem";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests, clearRequests } from "../../../../tools/requestsSlice";
+import { addRequests, clearRequests } from "../../../../tools/requestsSlice"; // Remova o addRequests daqui, pois agora os pedidos serão atualizados automaticamente quando a lista filtrada mudar
 import { requestMockData } from "../../../../utils/RequestsMockData";
 
 export default function RequestsTable() {
-    const requests = useSelector(state => state.requests.requestsList);
-    console.log(requests);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedRequest, setSelectedRequest] = useState(null);
-    const [storedRequests, setStoredRequests] = useState([]);
     const dispatch = useDispatch();
+    const filteredRequests = useSelector(state => state.requests.filteredRequests); // Obtém a lista de pedidos filtrados
+    const requestsList = useSelector(state => state.requests.requestsList); // Obtém a lista de pedidos não filtrados
 
     function activeRequestsDetailsModal(request) {
         setSelectedRequest(request);
@@ -35,11 +34,10 @@ export default function RequestsTable() {
         }
     }, [dispatch]); // Adicione o dispatch como dependência para evitar avisos do ESLint
 
-
     return (
         <>
             <RequestsList>
-                {requests.map((request, index) => (
+                {(filteredRequests && filteredRequests.length > 0 ? filteredRequests : requestsList).map((request, index) => (
                     <RequestsItem
                         key={index}
                         request={request}
@@ -55,4 +53,3 @@ export default function RequestsTable() {
         </>
     )
 }
-
