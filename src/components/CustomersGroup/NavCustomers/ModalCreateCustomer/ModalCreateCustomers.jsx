@@ -2,7 +2,7 @@ import { Footer, Modal, ModalForms, ModalTitle, Overlay, SaveButton } from "./Mo
 import CloseIcon from "../../../../assets/images/close.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../../../../schemas/CustomersSchema";
+import { customerSchema } from "../../../../schemas/CustomersSchema";
 import { useDispatch } from 'react-redux';
 import { closeModal, addCustomer } from '../../../../tools/customersSlice';
 import axios from 'axios';
@@ -11,8 +11,8 @@ export default function ModalCreateCustomers(props) {
     const dispatch = useDispatch();
     const { activeCreateCustomersModal } = props;
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
-        resolver: yupResolver(schema)
-    });
+        resolver: yupResolver(customerSchema)
+    }); 
 
     const onSubmit = async (data) => {
         try {

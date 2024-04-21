@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const schema = yup.object().shape({
+export const customerSchema = yup.object().shape({
     name: yup.string().required('Nome é obrigatório').max(20, 'Nome deve ter no máximo 20 caracteres'),
     cnpj: yup.string()
         .required('CNPJ é obrigatório')

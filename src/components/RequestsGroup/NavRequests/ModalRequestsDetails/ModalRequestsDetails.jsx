@@ -1,10 +1,18 @@
 import { Modal, ModalInfos, ModalTitle, Overlay } from "./ModalRequestsDetails-Styles";
 import CloseIcon from "../../../../assets/images/close.svg";
-import BigImage from "../../../../assets/images/bigImage.svg";
+/* import BigImage from "../../../../assets/images/bigImage.svg"; */
 
 export default function ModalRequestsDetails(props) {
+    const { request, activeRequestsDetailsModal } = props;
 
-    const {activeRequestsDetailsModal} = props;
+    if (!request) {
+        return null; 
+    }
+
+    const {image, name, price, description } = request;
+
+        // Converte o preço para número e formata como reais
+        const formattedPrice = Number(price.replace(',', '.')).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     return (
         <>
@@ -15,11 +23,11 @@ export default function ModalRequestsDetails(props) {
                         <img onClick={activeRequestsDetailsModal} src={CloseIcon} alt="CloseIcon" />
                     </ModalTitle>
                     <ModalInfos>
-                        <img src={BigImage} alt="" />
+                        <img src={image} alt="" />
                         <div>
-                            <h2>Produto</h2>
-                            <h3>R$ 23,99</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut diam sed metus commodo egestas. Nam pellentesque neque tortor. Donec nunc nunc, tempus eu luctus at, semper a magna. Pellentesque auctor accumsan sem id eleifend. Pellentesque venenatis nunc vel eros mollis tristique. Nam et erat tristique velit scelerisque rhoncus. Donec bibendum, elit in viverra blandit, enim velit pharetra ex, id lacinia justo elit eu velit. Integer porta auctor quam dapibus varius. Etiam scelerisque ullamcorper risus at pretium.</p>
+                            <h2>{name}</h2>
+                            <h3>{formattedPrice}</h3>
+                            <p>{description}</p>
                         </div>
                     </ModalInfos>
                 </Modal>

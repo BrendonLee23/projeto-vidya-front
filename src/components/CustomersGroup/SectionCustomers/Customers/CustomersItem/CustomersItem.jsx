@@ -2,7 +2,7 @@ import { getInitials } from "../../../../../utils/GetInitialsFunction";
 import { CustomersCard, CustomersDescription } from "./CustomersItem-Styles";
 
 export default function CustomersItem({ customer, onClick }) {
-    console.log(customer)
+
     const { name, cnpj } = customer;
     const initials = getInitials(name);
 

@@ -1,9 +1,9 @@
+import { CustomersList } from "./CustomersTable-Styles";
 import { useState, useEffect } from "react";
 import ModalCustomersDetails from "../../NavCustomers/ModalCustomersDetails/ModalCustomersDetails";
-import { CustomersList } from "./CustomersTable-Styles";
 import CustomersItem from "./CustomersItem/CustomersItem";
 import { useDispatch, useSelector } from 'react-redux';
-import { customerData } from "../../../../utils/CustomerAssets";
+import { customerData } from "../../../../utils/CustomerMockData";
 import { addCustomer } from "../../../../tools/customersSlice";
 
 export default function CustomersTable() {
