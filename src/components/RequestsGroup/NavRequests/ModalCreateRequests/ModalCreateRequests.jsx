@@ -6,9 +6,11 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addRequests, closeModal } from "../../../../tools/requestsSlice";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRef } from "react"; // Importe o useState
 
 export default function ModalCreateRequests(props) {
     const dispatch = useDispatch();
+    const lastCode = useRef(0); // Definindo lastCode como um ref
     const { activeCreateRequestsModal } = props;
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(requestSchema)
@@ -16,17 +18,21 @@ export default function ModalCreateRequests(props) {
 
     const onSubmit = async (data) => {
         try {
-            dispatch(addRequests(data));
+            const requestData = {
+                ...data,
+                code: String(++lastCode.current).padStart(2, '0'), // Incrementando lastCode.current
+            };
+
+            dispatch(addRequests(requestData));
             dispatch(closeModal());
             const requestsData = JSON.parse(localStorage.getItem('requests')) || [];
-            const updatedRequests = [...requestsData, data];
+            const updatedRequests = [...requestsData, requestData];
             localStorage.setItem('requests', JSON.stringify(updatedRequests));
             activeCreateRequestsModal();
         } catch (error) {
             console.error('Erro ao cadastrar produto:', error);
         }
     };
-
 
     return (
         <>
@@ -74,7 +80,3 @@ export default function ModalCreateRequests(props) {
         </>
     )
 }
-
-
-
-

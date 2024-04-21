@@ -8,7 +8,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -16,7 +16,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -24,7 +24,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -32,7 +32,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -40,7 +40,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -48,7 +48,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -56,7 +56,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -64,7 +64,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -72,7 +72,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -80,7 +80,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -88,7 +88,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -96,7 +96,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -104,7 +104,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -112,7 +112,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -120,7 +120,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
@@ -128,7 +128,7 @@ export default function OrdersTable() {
                     <h1>IS</h1>
                     <OrdersDescription>
                         <h2>Império dos Sonhos</h2>
-                        <h3>00.000.000/0000-00</h3>
+                        <h3>Qtd. produtos: 123</h3>
                     </OrdersDescription>
                     <h4>R$ 49,99</h4>
                 </OrdersCard>
