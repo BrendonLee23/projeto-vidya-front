@@ -4,7 +4,7 @@ export const CustomersCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: start;
-    width: 310px;
+    width: 300px;
     height: 69px;
     background-color:#FFFFFF;
     border-radius: 8px;

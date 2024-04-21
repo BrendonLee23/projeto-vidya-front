@@ -22,8 +22,11 @@ const customersSlice = createSlice({
         closeModal(state) {
             state.modalOpen = false;
         },
+        clearCustomers(state) {
+            state.customersList = [];
+        }
     },
 });
 
-export const { addCustomer, openModal, closeModal } = customersSlice.actions;
+export const { addCustomer, openModal, closeModal, clearCustomers } = customersSlice.actions;
 export default customersSlice.reducer;

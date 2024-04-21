@@ -16,11 +16,16 @@ const requestsSlice = createSlice({
         openModal(state){
             state.modalOpen = true;
         },
+
         closeModal(state){
             state.modalOpen = false;
+        },
+
+        clearRequests(state) {
+            state.requestsList = [];
         }
     }
 })
 
-export const { addRequests, openModal, closeModal } = requestsSlice.actions;
+export const { addRequests, openModal, closeModal, clearRequests } = requestsSlice.actions;
 export default requestsSlice.reducer;

@@ -4,7 +4,7 @@ import ModalCustomersDetails from "../../NavCustomers/ModalCustomersDetails/Moda
 import CustomersItem from "./CustomersItem/CustomersItem";
 import { useDispatch, useSelector } from 'react-redux';
 import { customerData } from "../../../../utils/CustomerMockData";
-import { addCustomer } from "../../../../tools/customersSlice";
+import { addCustomer, clearCustomers } from "../../../../tools/customersSlice";
 
 export default function CustomersTable() {
     const customers = useSelector(state => state.customers.customersList);
@@ -19,15 +19,20 @@ export default function CustomersTable() {
     }
 
     useEffect(() => {
-        if (localStorage.getItem('customers') !== null) {
-            const storedData = JSON.parse(localStorage.getItem('customers')) || [];
-            setStoredCustomers(storedData);
-            storedData.forEach((item) => dispatch( addCustomer(item)));
-        }
-        else {
+        // Verifica se já existem clientes salvos no armazenamento local
+        const localStorageCustomers = JSON.parse(localStorage.getItem('customers'));
+        if (localStorageCustomers) {
+            // Limpa a lista de clientes antes de adicionar os novos dados
+            dispatch(clearCustomers());
+            // Adiciona os dados do armazenamento local à lista de clientes
+            localStorageCustomers.forEach((item) => dispatch(addCustomer(item)));
+        } else {
+            // Se não houver, salva os dados mockados no armazenamento local
             localStorage.setItem('customers', JSON.stringify(customerData));
+            // Adiciona os dados mockados à lista de clientes
+            customerData.forEach((item) => dispatch(addCustomer(item)));
         }
-    }, []);
+    }, [dispatch]); // Adicione o dispatch como dependência para evitar avisos do ESLint
 
     return (
         <>
