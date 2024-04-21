@@ -10,5 +10,23 @@ export const requestMockData = [
         name: "Nome do Produto 2",
         price: "30,00",
         description: "Descrição do Produto 2"
+    },
+    {
+        image: "https://radio93fm.com.br/wp-content/uploads/2019/02/produto-585x380.png",
+        name: "Nome do Produto 3",
+        price: "30,00",
+        description: "Descrição do Produto 2"
+    },    
+    {
+        image: "https://radio93fm.com.br/wp-content/uploads/2019/02/produto-585x380.png",
+        name: "Nome do Produto 4",
+        price: "30,00",
+        description: "Descrição do Produto 2"
+    },
+    {
+        image: "https://radio93fm.com.br/wp-content/uploads/2019/02/produto-585x380.png",
+        name: "Nome do Produto 5",
+        price: "30,00",
+        description: "Descrição do Produto 2"
     }
 ];

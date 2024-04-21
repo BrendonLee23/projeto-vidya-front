@@ -1,4 +1,4 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
 
 export const RequestsList = styled.div`
     display: flex;
@@ -7,4 +7,6 @@ export const RequestsList = styled.div`
     width: 100%;
     height: 500px;
     border-radius: 8px;
-`
+    gap: 10px;
+    overflow: overlay;  /* Adiciona overflow com barra de rolagem apenas quando necessário */
+`;

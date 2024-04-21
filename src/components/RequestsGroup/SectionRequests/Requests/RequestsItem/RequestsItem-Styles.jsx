@@ -5,7 +5,7 @@ export const RequestsCard = styled.div`
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    width: 250px;
+    width: 240px;
     height: 233px;
     background-color:#FFFFFF;
     border-radius: 13px;
@@ -14,7 +14,7 @@ export const RequestsCard = styled.div`
     gap: 15px;
     cursor: pointer;
     img{
-        width: 250px;
+        width: 240px;
         height: 162px;
         gap: 10px;
         opacity: 0px;
