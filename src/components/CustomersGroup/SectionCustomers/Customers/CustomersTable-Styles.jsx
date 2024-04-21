@@ -6,7 +6,7 @@ export const CustomersList = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 450px;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
     border-radius: 8px;
     gap: 15px;
     overflow: overlay;

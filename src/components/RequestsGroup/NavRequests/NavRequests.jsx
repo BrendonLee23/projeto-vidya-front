@@ -1,25 +1,57 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SearchIcon from "../../../assets/images/search.svg";
 import { StyledInput, StyledNav } from "./NavRequests-Styles";
 import { filterRequests } from "../../../tools/requestsSlice";
 import CreateRequestsButton from "./CreateRequestsButton/CreateRequestsButton";
+
 export default function NavRequests() {
     const [searchTerm, setSearchTerm] = useState("");
     const dispatch = useDispatch();
+    const requestsList = useSelector(state => state.requests.requestsList);
 
     const handleSearch = () => {
-        console.log(searchTerm)
-        dispatch(filterRequests(searchTerm.trim())); // Aplica o filtro de busca
+        const trimmedSearchTerm = searchTerm.trim();
+
+        if (trimmedSearchTerm === "") {
+            alert("Por favor, insira um termo de pesquisa.");
+            return;
+        }
+
+        const filteredRequests = requestsList.filter(request =>
+            request.name.toLowerCase().includes(trimmedSearchTerm.toLowerCase())
+        );
+
+        if (filteredRequests.length === 0) {
+            alert("Nenhum pedido encontrado com o termo de pesquisa fornecido.");
+            return;
+        }
+
+        dispatch(filterRequests(trimmedSearchTerm));
     };
 
     const handleInputChange = (event) => {
-        setSearchTerm(event.target.value); // Atualiza o termo de busca conforme o usuário digita
+        setSearchTerm(event.target.value);
     };
 
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
-            dispatch(filterRequests(searchTerm.trim())); // Aplica o filtro de busca quando Enter for pressionado
+            handleSearch();
+        }
+    };
+
+    const handleIconClick = () => {
+        if (searchTerm.trim() === "") {
+            alert("Por favor, insira um termo de pesquisa.");
+            return;
+        }
+        handleSearch();
+    };
+
+    // Adicionando a lógica para recarregar a página quando o usuário esvaziar o input após uma pesquisa
+    const handleInputBlur = () => {
+        if (searchTerm.trim() === "") {
+            window.location.reload(); // Recarrega a página
         }
     };
 
@@ -31,13 +63,14 @@ export default function NavRequests() {
                     placeholder="Pesquisar"
                     value={searchTerm}
                     onChange={handleInputChange}
-                    onKeyPress={handleKeyPress} // Ativa a pesquisa quando Enter é pressionado
+                    onKeyPress={handleKeyPress}
+                    onBlur={handleInputBlur} // Adicionando o evento onBlur para detectar quando o input perde o foco
                 />
                 <img
                     src={SearchIcon}
                     alt="SearchIcon"
-                    onClick={handleSearch} // Ativa a pesquisa quando o ícone de pesquisa é clicado
-                    style={{ cursor: "pointer" }} // Adiciona estilo de cursor para indicar que é clicável
+                    onClick={handleIconClick}
+                    style={{ cursor: "pointer" }}
                 />
             </StyledInput>
             <CreateRequestsButton/>
