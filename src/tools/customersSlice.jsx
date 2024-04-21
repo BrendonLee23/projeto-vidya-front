@@ -5,6 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     customersList: [],
     modalOpen: false,
+    filteredCustomers: [],
 };
 
 
@@ -19,14 +20,23 @@ const customersSlice = createSlice({
         openModal(state) {
             state.modalOpen = true;
         },
+
         closeModal(state) {
             state.modalOpen = false;
         },
+
         clearCustomers(state) {
             state.customersList = [];
+        },
+
+        filterCustomers(state, action) {
+            const searchTerm = action.payload.toLowerCase(); // Convertendo o termo de pesquisa para minúsculo
+            state.filteredCustomers = state.customersList.filter(request =>
+                request.name.toLowerCase().includes(searchTerm) // Filtrando com base no nome, independentemente de ser maiúsculo ou minúsculo
+            );
         }
     },
 });
 
-export const { addCustomer, openModal, closeModal, clearCustomers } = customersSlice.actions;
+export const { addCustomer, openModal, closeModal, clearCustomers, filterCustomers } = customersSlice.actions;
 export default customersSlice.reducer;

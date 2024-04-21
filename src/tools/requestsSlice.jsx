@@ -28,7 +28,6 @@ const requestsSlice = createSlice({
         },
 
         filterRequests(state, action) {
-            console.log(action)
             const searchTerm = action.payload.toLowerCase(); // Convertendo o termo de pesquisa para minúsculo
             state.filteredRequests = state.requestsList.filter(request =>
                 request.name.toLowerCase().includes(searchTerm) // Filtrando com base no nome, independentemente de ser maiúsculo ou minúsculo

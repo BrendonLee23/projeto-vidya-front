@@ -70,7 +70,6 @@ export default function NavRequests() {
                     src={SearchIcon}
                     alt="SearchIcon"
                     onClick={handleIconClick}
-                    style={{ cursor: "pointer" }}
                 />
             </StyledInput>
             <CreateRequestsButton/>

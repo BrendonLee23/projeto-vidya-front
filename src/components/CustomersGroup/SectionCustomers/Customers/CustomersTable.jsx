@@ -7,11 +7,11 @@ import { customerData } from "../../../../utils/CustomerMockData";
 import { addCustomer, clearCustomers } from "../../../../tools/customersSlice";
 
 export default function CustomersTable() {
-    const customers = useSelector(state => state.customers.customersList);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedCustomer, setSelectedCustomer] = useState(null);
-    const [storedCustomers, setStoredCustomers] = useState([]);
     const dispatch = useDispatch();
+    const filteredCustomers = useSelector(state => state.customers.filteredCustomers);
+    const customersList = useSelector(state => state.customers.customersList);
 
     function activeDetailsCustomersModal(customer) {
         setSelectedCustomer(customer);
@@ -37,7 +37,7 @@ export default function CustomersTable() {
     return (
         <>
             <CustomersList>
-                {customers.map((customer, index) => (
+            {(filteredCustomers && filteredCustomers.length > 0 ? filteredCustomers : customersList).map((customer, index) => (
                     <CustomersItem
                         key={index}
                         customer={customer}
