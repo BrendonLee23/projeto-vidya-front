@@ -1,14 +1,41 @@
-import { Footer, Modal, ModalTitle, Overlay, ProductList, SaveButton, SelectArea, StyledInput } from "./ModalCreateOrders-Styles";
+import { CustomerList, Footer, Modal, ModalTitle, Overlay, ProductList, SaveButton, SelectArea, StyledInput } from "./ModalCreateOrders-Styles";
 import CloseIcon from "../../../../assets/images/close.svg";
 import { styled } from "styled-components";
 import SearchIcon from "../../../../assets/images/search.svg";
 import Image from "../../../../assets/images/Image.svg";
 import Minus from "../../../../assets/images/Minus.svg";
 import Add from "../../../../assets/images/Add.svg";
+import { useEffect, useState } from "react";
 
 export default function ModalCreateOrders(props) {
 
     const { activeCreateOrdersModal } = props;
+    const [customers, setCustomers] = useState([]);
+    const [selectedCustomer, setSelectedCustomer] = useState("");
+    const [searchInput, setSearchInput] = useState("");
+    const [isListVisible, setIsListVisible] = useState(false); // Flag para controlar a visibilidade da lista
+
+    useEffect(() => {
+        // Carregar clientes do localStorage ou de outra fonte de dados
+        const customersFromStorage = JSON.parse(localStorage.getItem("customers")) || [];
+        setCustomers(customersFromStorage);
+    }, []);
+
+    const handleInputChange = (e) => {
+        setSearchInput(e.target.value);
+        setIsListVisible(true); // Mostrar a lista quando o usuário digitar no input
+    };
+
+    const handleSelectCustomer = (customer) => {
+        setSelectedCustomer(customer);
+        setIsListVisible(false); // Esconder a lista quando um cliente for selecionado
+    };
+
+    const filteredCustomers = customers.filter((customer) =>
+        customer.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+
 
     return (
         <>
@@ -19,8 +46,23 @@ export default function ModalCreateOrders(props) {
                         <img onClick={activeCreateOrdersModal} src={CloseIcon} alt="CloseIcon" />
                     </ModalTitle>
                     <SelectArea>
-                        <div>
-                            <input type="search" placeholder="Selecionar cliente" />
+                    <div>
+                            <input
+                                type="text"
+                                placeholder="Selecionar cliente"
+                                value={selectedCustomer}
+                                onChange={handleInputChange}
+                                onFocus={() => setIsListVisible(true)}
+                            />
+                            {isListVisible && (
+                                <CustomerList>
+                                    {filteredCustomers.map((customer) => (
+                                        <li key={customer.id} onClick={() => handleSelectCustomer(customer.name)}>
+                                            {customer.name}
+                                        </li>
+                                    ))}
+                                </CustomerList>
+                            )}
                         </div>
                         <div>
                             <h1>Produtos</h1>

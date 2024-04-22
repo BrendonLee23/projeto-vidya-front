@@ -64,6 +64,30 @@ export const SelectArea = styled.div`
         margin-bottom:10px;
     }
 `
+export const CustomerList = styled.ul`
+    position: absolute;
+    top: 55px; /* Ajuste a posição conforme necessário */
+    margin-top: 130px;
+    width: 500px;
+    max-height: 120px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0;
+/*     margin: 0; */
+    list-style: none;
+    z-index: 9999;
+    li {
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    li:hover {
+        background-color: #f0f0f0;
+    }
+`;
+
+
 export const StyledInput = styled.div`
     display: flex;
     align-items: center;
