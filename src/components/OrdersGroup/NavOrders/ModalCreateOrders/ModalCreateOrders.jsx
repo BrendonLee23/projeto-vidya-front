@@ -1,319 +1,160 @@
-import { CustomerList, Footer, Modal, ModalTitle, Overlay, ProductList, SaveButton, SelectArea, StyledInput } from "./ModalCreateOrders-Styles";
+import React, { useState, useEffect } from "react";
 import CloseIcon from "../../../../assets/images/close.svg";
-import { styled } from "styled-components";
+import { CustomerList, Footer, Modal, ModalTitle, Overlay, ProductList, SaveButton, SelectArea, StyledInput, Product, Details, Resume, Quantity, Price, TitleProduct, Total } from "./ModalCreateOrders-Styles";
 import SearchIcon from "../../../../assets/images/search.svg";
 import Image from "../../../../assets/images/Image.svg";
 import Minus from "../../../../assets/images/Minus.svg";
 import Add from "../../../../assets/images/Add.svg";
-import { useEffect, useState } from "react";
+import { styled } from "styled-components";
 
 export default function ModalCreateOrders(props) {
-
     const { activeCreateOrdersModal } = props;
     const [customers, setCustomers] = useState([]);
     const [selectedCustomer, setSelectedCustomer] = useState("");
     const [searchInput, setSearchInput] = useState("");
-    const [isListVisible, setIsListVisible] = useState(false); // Flag para controlar a visibilidade da lista
+    const [isCustomerListVisible, setIsCustomerListVisible] = useState(false);
+    const [isProductListVisible, setIsProductListVisible] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null); // Estado para armazenar o produto selecionado
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
         // Carregar clientes do localStorage ou de outra fonte de dados
         const customersFromStorage = JSON.parse(localStorage.getItem("customers")) || [];
         setCustomers(customersFromStorage);
+    
+        // Carregar produtos do localStorage ou de outra fonte de dados
+        const productsFromStorage = JSON.parse(localStorage.getItem("requests")) || [];
+        // Inicializar a propriedade "quantity" como zero para todos os produtos
+        const productsWithQuantity = productsFromStorage.map(product => ({ ...product, quantity: 0 }));
+        setProducts(productsWithQuantity);
+        setFilteredProducts(productsWithQuantity); // Exibir todos os produtos inicialmente
     }, []);
+    
 
     const handleInputChange = (e) => {
-        setSearchInput(e.target.value);
-        setIsListVisible(true); // Mostrar a lista quando o usuário digitar no input
+        const searchTerm = e.target.value.toLowerCase();
+        setSearchInput(searchTerm);
+        // Filtrar os produtos com base na pesquisa
+        const filtered = products.filter(product =>
+            product.name.toLowerCase().includes(searchTerm)
+        );
+        setFilteredProducts(filtered);
+        setIsProductListVisible(true);
     };
 
     const handleSelectCustomer = (customer) => {
         setSelectedCustomer(customer);
-        setIsListVisible(false); // Esconder a lista quando um cliente for selecionado
+        setIsCustomerListVisible(false);
     };
 
-    const filteredCustomers = customers.filter((customer) =>
-        customer.name.toLowerCase().includes(searchInput.toLowerCase())
-    );
+    const handleToggleProduct = (product) => {
+        if (selectedProduct === product) {
+            setSelectedProduct(null); // Desseleciona o produto se ele já estiver selecionado
+        } else {
+            setSelectedProduct(product); // Seleciona o produto clicado
+        }
+    };
 
-
+    const handleQuantityChange = (product, amount) => {
+        const updatedProducts = filteredProducts.map(p => {
+            if (p.id === product.id) {
+                // Verifica se a quantidade é positiva antes de adicionar
+                const newQuantity = Math.max(0, p.quantity + amount);
+                return { ...p, quantity: newQuantity };
+            }
+            return p;
+        });
+        setFilteredProducts(updatedProducts);
+    };
+    
+    
+    
+    
+    
+    
 
     return (
-        <>
-            <Overlay>
-                <Modal>
-                    <ModalTitle>
-                        <h2>Cadrastro de pedido</h2>
-                        <img onClick={activeCreateOrdersModal} src={CloseIcon} alt="CloseIcon" />
-                    </ModalTitle>
-                    <SelectArea>
+        <Overlay>
+            <Modal>
+                <ModalTitle>
+                    <h2>Cadastro de pedido</h2>
+                    <img onClick={activeCreateOrdersModal} src={CloseIcon} alt="CloseIcon" />
+                </ModalTitle>
+                <SelectArea>
                     <div>
+                        <input
+                            type="text"
+                            placeholder="Selecionar cliente"
+                            value={selectedCustomer}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            onFocus={() => setIsCustomerListVisible(true)}
+                        />
+                        {isCustomerListVisible && (
+                            <CustomerList>
+                                {customers.map((customer) => (
+                                    <li key={customer.id} onClick={() => handleSelectCustomer(customer.name)}>
+                                        {customer.name}
+                                    </li>
+                                ))}
+                            </CustomerList>
+                        )}
+                    </div>
+                    <ProductArea>
+                        <h1>Produtos</h1>
+                        <StyledInput>
                             <input
                                 type="text"
-                                placeholder="Selecionar cliente"
-                                value={selectedCustomer}
+                                placeholder="Pesquisar produtos"
+                                value={searchInput}
                                 onChange={handleInputChange}
-                                onFocus={() => setIsListVisible(true)}
+                                onFocus={() => setIsProductListVisible(true)}
                             />
-                            {isListVisible && (
-                                <CustomerList>
-                                    {filteredCustomers.map((customer) => (
-                                        <li key={customer.id} onClick={() => handleSelectCustomer(customer.name)}>
-                                            {customer.name}
-                                        </li>
-                                    ))}
-                                </CustomerList>
-                            )}
-                        </div>
-                        <div>
-                            <h1>Produtos</h1>
-                            <StyledInput>
-                                <input type="text" placeholder="Pesquisar produtos" />
-                                <img src={SearchIcon} alt="SearchIcon" />
-                            </StyledInput>
-                        </div>
-                    </SelectArea>
-                    <ProductList>
-                        <Product>
-                            <img src={Image} alt="Image" />
-                            <Details>
-                                <TitleProduct>
-                                    <h1>Produto</h1>
-                                    <h2>Cód. 1</h2>
-                                </TitleProduct>
-                                <Resume>
-                                    <Quantity>
-                                        <img src={Minus} alt="Sub" />
-                                        <h1>1</h1>
-                                        <img src={Add} alt="Add" />
-                                    </Quantity>
-                                    <Price>
-                                        R$ 9,99
-                                    </Price>
-                                </Resume>
-                            </Details>
-                        </Product>
-                        <Product>
-                            <img src={Image} alt="Image" />
-                            <Details>
-                                <TitleProduct>
-                                    <h1>Produto</h1>
-                                    <h2>Cód. 1</h2>
-                                </TitleProduct>
-                                <Resume>
-                                    <Quantity>
-                                        <img src={Minus} alt="Sub" />
-                                        <h1>1</h1>
-                                        <img src={Add} alt="Add" />
-                                    </Quantity>
-                                    <Price>
-                                        R$ 9,99
-                                    </Price>
-                                </Resume>
-                            </Details>
-                        </Product>
-                        <Product>
-                            <img src={Image} alt="Image" />
-                            <Details>
-                                <TitleProduct>
-                                    <h1>Produto</h1>
-                                    <h2>Cód. 1</h2>
-                                </TitleProduct>
-                                <Resume>
-                                    <Quantity>
-                                        <img src={Minus} alt="Sub" />
-                                        <h1>1</h1>
-                                        <img src={Add} alt="Add" />
-                                    </Quantity>
-                                    <Price>
-                                        R$ 9,99
-                                    </Price>
-                                </Resume>
-                            </Details>
-                        </Product>
-                        <Product>
-                            <img src={Image} alt="Image" />
-                            <Details>
-                                <TitleProduct>
-                                    <h1>Produto</h1>
-                                    <h2>Cód. 1</h2>
-                                </TitleProduct>
-                                <Resume>
-                                    <Quantity>
-                                        <img src={Minus} alt="Sub" />
-                                        <h1>1</h1>
-                                        <img src={Add} alt="Add" />
-                                    </Quantity>
-                                    <Price>
-                                        R$ 9,99
-                                    </Price>
-                                </Resume>
-                            </Details>
-                        </Product>
-                        <Product>
-                            <img src={Image} alt="Image" />
-                            <Details>
-                                <TitleProduct>
-                                    <h1>Produto</h1>
-                                    <h2>Cód. 1</h2>
-                                </TitleProduct>
-                                <Resume>
-                                    <Quantity>
-                                        <img src={Minus} alt="Sub" />
-                                        <h1>1</h1>
-                                        <img src={Add} alt="Add" />
-                                    </Quantity>
-                                    <Price>
-                                        R$ 9,99
-                                    </Price>
-                                </Resume>
-                            </Details>
-                        </Product>
-                        <Product>
-                            <img src={Image} alt="Image" />
-                            <Details>
-                                <TitleProduct>
-                                    <h1>Produto</h1>
-                                    <h2>Cód. 1</h2>
-                                </TitleProduct>
-                                <Resume>
-                                    <Quantity>
-                                        <img src={Minus} alt="Sub" />
-                                        <h1>1</h1>
-                                        <img src={Add} alt="Add" />
-                                    </Quantity>
-                                    <Price>
-                                        R$ 9,99
-                                    </Price>
-                                </Resume>
-                            </Details>
-                        </Product>
-                    </ProductList>
-                    <Footer>
-                        <Total>
-                            <h1>Total:</h1>
-                            <h2>R$ 49,99</h2>
-                        </Total>
-                        <SaveButton>
-                            <p>Salvar</p>
-                        </SaveButton>
-                    </Footer>
-                </Modal>
-            </Overlay>
-        </>
-    )
+                            <img src={SearchIcon} alt="SearchIcon" />
+                        </StyledInput>
+                        {isProductListVisible && (
+                            <ProductList>
+                                {filteredProducts.map((product) => (
+                                    <Product key={product.id} onClick={() => handleToggleProduct(product)}>
+                                        <img src={product.image} alt="Product" />
+                                        <Details>
+                                            <TitleProduct>
+                                                <h1>{product.name}</h1>
+                                                <h2>Cód. {product.code}</h2>
+                                            </TitleProduct>
+                                            <Resume>
+                                                <Quantity>
+                                                    <img src={Minus} alt="Subtract" onClick={() => handleQuantityChange(product, -1)} />
+                                                    <h1>{product.quantity}</h1>
+                                                    <img src={Add} alt="Add" onClick={() => handleQuantityChange(product, 1)} />
+                                                </Quantity>
+                                                <Price>
+                                                    R$ {product.price}
+                                                </Price>
+                                            </Resume>
+                                        </Details>
+                                    </Product>
+                                ))}
+                            </ProductList>
+                        )}
+                    </ProductArea>
+                </SelectArea>
+                <Footer>
+                    <Total>
+                        <h1>Total:</h1>
+                        {/* Verificar se há produtos antes de calcular o total */}
+                        <h2>R$ 0.00 </h2>
+                    </Total>
+                    <SaveButton>
+                        <p>Salvar</p>
+                    </SaveButton>
+                </Footer>
+            </Modal>
+        </Overlay>
+    );
 }
 
-
-const Product = styled.div`
-    display: flex;
-    align-items: center;
-    width: 300px;
-    height: 100px;
-    gap: 0px;
-    border-radius: 16px;
-    border: 1px solid #D4D6DD;
-    opacity: 0px;
-    img{
-        width: 88px;
-        height: 100px;
-        margin-right: 20px;
-    }
-`
-
-const Details = styled.div`
+const ProductArea = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 180px;
-    div{
-        display: flex;
-    }
-`
-const Resume = styled.div`
-    display: flex;
-    justify-content: space-between;
-`
-
-const Quantity = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top:10px;
-    gap: 5px;
-    img{
-        margin-right: 6px;
-        width: 24px;
-        height: 24px;
-        cursor:pointer; 
-    }
-    h1{
-        font-family: Inter;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        text-align: center;
-        color:#1F2024;
-        margin-right: 6px;
-    }
-
-`
-const Price = styled.h1`
-    display:flex;
-    align-items: end;
-    justify-content: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 800;
-    line-height: 16.94px;
-    text-align: left;
-    color:#1F2024;
-    padding-bottom:5px;
-    padding-right: 10px;
-`
-const TitleProduct = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 205px;
-    height: 35px;
-    gap: 4px;
-    h1{
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 14.52px;
-    text-align: left;
-    color:#1F2024;
-    }
-    h2{
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    text-align: left;
-    color: #71727A;
-    }
-`
-const Total = styled.div`
-    display: flex;
-    gap: 10px;
-    h1{
-        font-family: Inter;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 20px;
-        text-align: left;
-        color:#1ABC00
-    }
-    h2{
-        font-family: Inter;
-        font-size: 16px;
-        font-weight: 900;
-        line-height: 19.36px;
-        letter-spacing: 0.005em;
-        text-align: left;
-        color:#1F2024;
-    }
-`
+`;
