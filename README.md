@@ -1,9 +1,28 @@
-# React + Vite
+# Projeto Vidya Front End
+A aplicação frontend é construída com React, utilizando Vite como ferramenta de desenvolvimento. Apresenta uma tela possibilitando a navegação entre as areas de Clientes, Produtos e Serviços.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Versão Demo - Deploy 
+[Link do projeto](https://projeto-vidya-front-q0515qic9-brendonlee23s-projects.vercel.app/)
 
-Currently, two official plugins are available:
+# Como funciona?
+Este projeto é uma aplicação front-end desenvolvida em React com Vite, destinada a exibir e gerenciar informações de Clientes, Pedidos e Produtos. A Aplicação exibe uma intervace iterativa que possibilita o usuário nagevar entre as telas de Clientes Pedidos e Produtos, podendo filtrar informações, exibir detalhes e cadastrar novos dados, que serão exibidos em seguida, proporcionando uma experiência de usuário personalizada.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# projeto-vidya-front
+#### Tela de Pedidos - 
+- Apresenta os dados de todos os pedidos disponíveis;
+- Caso uma busca filtrada seja executada, a tabela exibe somente o resultado relacionado;
+- Em caso de falha na busca de dados, é exibido um alerta informando o erro para o usuário;
+- É possível cadastrar novos pedidos na lista, a partir de informações de Clientes e Produtos;
+
+#### Tela de Clientes
+- Apresenta os dados de todos os clientes cadastrados;
+- Caso uma busca filtrada seja executada, a tabela exibe somente o resultado relacionado;
+- Em caso de falha na busca de dados, é exibido um alerta informando o erro para o usuário;
+- É possível realizar o cadastro de novos clientes;
+- É possível exibir um detalhamento específico ao clicar em um único cliente;
+
+#### Tela de Produtos
+- Apresenta os dados de todos os produtos disponíveis;
+- Caso uma busca filtrada seja executada, a tabela exibe somente o resultado relacionado;
+- Em caso de falha na busca de dados, é exibido um alerta informando o erro para o usuário;
+- É possível realizar o cadastro de novos produtos;
+- É possível exibir um detalhamento específico ao clicar em um único produto;
