@@ -19,20 +19,16 @@ export default function CustomersTable() {
     }
 
     useEffect(() => {
-        // Verifica se já existem clientes salvos no armazenamento local
+
         const localStorageCustomers = JSON.parse(localStorage.getItem('customers'));
         if (localStorageCustomers) {
-            // Limpa a lista de clientes antes de adicionar os novos dados
             dispatch(clearCustomers());
-            // Adiciona os dados do armazenamento local à lista de clientes
             localStorageCustomers.forEach((item) => dispatch(addCustomer(item)));
         } else {
-            // Se não houver, salva os dados mockados no armazenamento local
             localStorage.setItem('customers', JSON.stringify(customerData));
-            // Adiciona os dados mockados à lista de clientes
             customerData.forEach((item) => dispatch(addCustomer(item)));
         }
-    }, [dispatch]); // Adicione o dispatch como dependência para evitar avisos do ESLint
+    }, [dispatch]); 
 
     return (
         <>

@@ -1,6 +1,5 @@
 import { Modal, ModalInfos, ModalTitle, Overlay } from "./ModalRequestsDetails-Styles";
 import CloseIcon from "../../../../assets/images/close.svg";
-/* import BigImage from "../../../../assets/images/bigImage.svg"; */
 
 export default function ModalRequestsDetails(props) {
     const { request, activeRequestsDetailsModal } = props;
@@ -10,8 +9,6 @@ export default function ModalRequestsDetails(props) {
     }
 
     const {image, name, price, description } = request;
-
-        // Converte o preço para número e formata como reais
         const formattedPrice = Number(price.replace(',', '.')).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     return (

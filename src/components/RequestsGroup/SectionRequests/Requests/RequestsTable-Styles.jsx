@@ -8,5 +8,5 @@ export const RequestsList = styled.div`
     height: 500px;
     border-radius: 8px;
     gap: 10px;
-    overflow: overlay;  /* Adiciona overflow com barra de rolagem apenas quando necessário */
+    overflow: overlay;  
 `;

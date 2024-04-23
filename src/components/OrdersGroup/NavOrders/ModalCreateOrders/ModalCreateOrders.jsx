@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import CloseIcon from "../../../../assets/images/close.svg";
 import { CustomerList, Footer, Modal, ModalTitle, Overlay, ProductList, SaveButton, SelectArea, StyledInput, Product, Details, Resume, Quantity, Price, TitleProduct, Total } from "./ModalCreateOrders-Styles";
 import SearchIcon from "../../../../assets/images/search.svg";
-import Image from "../../../../assets/images/Image.svg";
 import Minus from "../../../../assets/images/Minus.svg";
 import Add from "../../../../assets/images/Add.svg";
 import { styled } from "styled-components";
@@ -15,27 +14,23 @@ export default function ModalCreateOrders(props) {
     const [isCustomerListVisible, setIsCustomerListVisible] = useState(false);
     const [isProductListVisible, setIsProductListVisible] = useState(false);
     const [products, setProducts] = useState([]);
-    const [selectedProduct, setSelectedProduct] = useState(null); // Estado para armazenar o produto selecionado
+    const [selectedProduct, setSelectedProduct] = useState(null); 
     const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
-        // Carregar clientes do localStorage ou de outra fonte de dados
         const customersFromStorage = JSON.parse(localStorage.getItem("customers")) || [];
         setCustomers(customersFromStorage);
-    
-        // Carregar produtos do localStorage ou de outra fonte de dados
+
         const productsFromStorage = JSON.parse(localStorage.getItem("requests")) || [];
-        // Inicializar a propriedade "quantity" como zero para todos os produtos
         const productsWithQuantity = productsFromStorage.map(product => ({ ...product, quantity: 0 }));
         setProducts(productsWithQuantity);
-        setFilteredProducts(productsWithQuantity); // Exibir todos os produtos inicialmente
+        setFilteredProducts(productsWithQuantity); 
     }, []);
     
 
     const handleInputChange = (e) => {
         const searchTerm = e.target.value.toLowerCase();
         setSearchInput(searchTerm);
-        // Filtrar os produtos com base na pesquisa
         const filtered = products.filter(product =>
             product.name.toLowerCase().includes(searchTerm)
         );
@@ -50,16 +45,15 @@ export default function ModalCreateOrders(props) {
 
     const handleToggleProduct = (product) => {
         if (selectedProduct === product) {
-            setSelectedProduct(null); // Desseleciona o produto se ele já estiver selecionado
+            setSelectedProduct(null); 
         } else {
-            setSelectedProduct(product); // Seleciona o produto clicado
+            setSelectedProduct(product); 
         }
     };
 
     const handleQuantityChange = (product, amount) => {
         const updatedProducts = filteredProducts.map(p => {
             if (p.id === product.id) {
-                // Verifica se a quantidade é positiva antes de adicionar
                 const newQuantity = Math.max(0, p.quantity + amount);
                 return { ...p, quantity: newQuantity };
             }
@@ -142,7 +136,6 @@ export default function ModalCreateOrders(props) {
                 <Footer>
                     <Total>
                         <h1>Total:</h1>
-                        {/* Verificar se há produtos antes de calcular o total */}
                         <h2>R$ 0.00 </h2>
                     </Total>
                     <SaveButton>

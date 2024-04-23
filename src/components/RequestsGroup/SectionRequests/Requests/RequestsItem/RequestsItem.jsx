@@ -7,7 +7,6 @@ export default function RequestsItem({ request, onClick }) {
         return null; 
     }
 
-    // Converte o preço para número e formata como reais
     const formattedPrice = Number(price.replace(',', '.')).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     return (

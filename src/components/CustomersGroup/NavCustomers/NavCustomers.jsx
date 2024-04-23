@@ -48,10 +48,9 @@ export default function NavCustomers() {
         handleSearch();
     };
 
-        // Adicionando a lógica para recarregar a página quando o usuário esvaziar o input após uma pesquisa
         const handleInputBlur = () => {
             if (searchTerm.trim() === "") {
-                window.location.reload(); // Recarrega a página
+                window.location.reload(); 
             }
         };
 

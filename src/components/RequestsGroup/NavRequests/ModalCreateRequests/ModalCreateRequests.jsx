@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addRequests, closeModal } from "../../../../tools/requestsSlice";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRef } from "react"; // Importe o useState
+import { useRef } from "react"; 
 
 export default function ModalCreateRequests(props) {
     const dispatch = useDispatch();
-    const lastCode = useRef(0); // Definindo lastCode como um ref
+    const lastCode = useRef(0); 
     const { activeCreateRequestsModal } = props;
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(requestSchema)
@@ -20,7 +20,7 @@ export default function ModalCreateRequests(props) {
         try {
             const requestData = {
                 ...data,
-                code: String(++lastCode.current).padStart(2, '0'), // Incrementando lastCode.current
+                code: String(++lastCode.current).padStart(2, '0'), 
             };
 
             dispatch(addRequests(requestData));

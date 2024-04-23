@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     requestsList: [],
     modalOpen: false,
-    filteredRequests: [], // Adicionando um novo estado para armazenar os pedidos filtrados
+    filteredRequests: [], 
 };
 
 const requestsSlice = createSlice({
@@ -24,13 +24,13 @@ const requestsSlice = createSlice({
 
         clearRequests(state) {
             state.requestsList = [];
-            state.filteredRequests = []; // Limpar também os pedidos filtrados
+            state.filteredRequests = []; 
         },
 
         filterRequests(state, action) {
-            const searchTerm = action.payload.toLowerCase(); // Convertendo o termo de pesquisa para minúsculo
+            const searchTerm = action.payload.toLowerCase(); 
             state.filteredRequests = state.requestsList.filter(request =>
-                request.name.toLowerCase().includes(searchTerm) // Filtrando com base no nome, independentemente de ser maiúsculo ou minúsculo
+                request.name.toLowerCase().includes(searchTerm)
             );
         }
     }

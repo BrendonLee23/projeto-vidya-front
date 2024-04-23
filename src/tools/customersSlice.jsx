@@ -30,9 +30,9 @@ const customersSlice = createSlice({
         },
 
         filterCustomers(state, action) {
-            const searchTerm = action.payload.toLowerCase(); // Convertendo o termo de pesquisa para minúsculo
+            const searchTerm = action.payload.toLowerCase(); 
             state.filteredCustomers = state.customersList.filter(request =>
-                request.name.toLowerCase().includes(searchTerm) // Filtrando com base no nome, independentemente de ser maiúsculo ou minúsculo
+                request.name.toLowerCase().includes(searchTerm) 
             );
         }
     },

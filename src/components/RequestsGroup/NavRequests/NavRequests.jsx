@@ -48,10 +48,9 @@ export default function NavRequests() {
         handleSearch();
     };
 
-    // Adicionando a lógica para recarregar a página quando o usuário esvaziar o input após uma pesquisa
     const handleInputBlur = () => {
         if (searchTerm.trim() === "") {
-            window.location.reload(); // Recarrega a página
+            window.location.reload(); 
         }
     };
 
@@ -64,7 +63,7 @@ export default function NavRequests() {
                     value={searchTerm}
                     onChange={handleInputChange}
                     onKeyPress={handleKeyPress}
-                    onBlur={handleInputBlur} // Adicionando o evento onBlur para detectar quando o input perde o foco
+                    onBlur={handleInputBlur} 
                 />
                 <img
                     src={SearchIcon}
